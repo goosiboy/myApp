@@ -6,6 +6,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const users = require('./routes/users');
 const config = require('./config/database');
+const passportConfig = require('./config/passport');
 
 // Connect to database
 mongoose.connect(config.database);
@@ -34,6 +35,11 @@ app.use(bodyParser.json());
 
 // Set a static folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passportConfig(passport);
 
 app.use('/users', users);
 
