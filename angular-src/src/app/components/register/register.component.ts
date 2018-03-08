@@ -1,6 +1,8 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ValidateService } from '../../services/validate.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +19,9 @@ export class RegisterComponent implements OnInit {
   // We need to bring services into the component by initializing them in a constructor
   constructor(
     private validateService: ValidateService,
-    private flashMessage: FlashMessagesService
+    private flashMessage: FlashMessagesService,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -31,6 +35,7 @@ export class RegisterComponent implements OnInit {
       password: this.password
     };
 
+    // Require all fields
     if (!this.validateService.validateRegister(user)) {
       this.flashMessage.show('Please fill in all fields', {
         cssClass: 'alert-danger', timeout: 3000
@@ -38,6 +43,7 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
+    // Validate Email
     if (!this.validateService.validateEmail(user.email)) {
       this.flashMessage.show('Please use a valid email', {
         cssClass: 'alert-danger', timeout: 3000
@@ -45,6 +51,22 @@ export class RegisterComponent implements OnInit {
       return false;
     }
 
+    // Register user
+    this.authService
+      .registerUser(user)
+      .subscribe(function(data) {
+      if (data.success) {
+        this.flashMessage.show('Registeration complete! You can now log in', {
+          cssClass: 'alert-success', timeout: 3000
+        });
+        this.router.navigate(['/login']);
+      } else {
+        this.flashMessage.show('Something went wrong', {
+          cssClass: 'alert-danger', timeout: 3000
+        });
+        this.router.navigate(['/register']);
+      }
+    }.bind(this)); // https://stackoverflow.com/questions/40801758/angular2-subscribe-understand-arrow-function
   }
 
 }
