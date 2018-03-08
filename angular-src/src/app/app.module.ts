@@ -13,7 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { ValidateService } from './services/validate.service';
-import { FlashMessagesModule } from 'angular2-flash-messages';
+import { FlashMessagesModule } from 'angular2-flash-messages/module';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
