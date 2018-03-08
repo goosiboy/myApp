@@ -21,13 +21,13 @@
   },
   "homepage": "https://github.com/oinasjo/myApp#readme",
   "dependencies": {
-    "nodemon": "^1.17.1",
-    "express": "*",
-    "mongoose": "*",
     "bcryptjs": "*",
-    "cors": "*",
-    "jsonwebtoken": "*",
     "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "nodemon": "^1.17.1",
     "passport": "*",
     "passport-jwt": "*"
   }
