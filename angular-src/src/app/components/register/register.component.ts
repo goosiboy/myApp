@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   // We need to bring services into the component by initializing them in a constructor
   constructor(
-    private validateService: ValidateService,
+    private validate: ValidateService,
     private flashMessage: FlashMessagesService,
     private authService: AuthService,
     private router: Router
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit() {
-    const user = {
+    const user = {
       name: this.name,
       username: this.username,
       email: this.email,
@@ -36,17 +36,17 @@ export class RegisterComponent implements OnInit {
     };
 
     // Require all fields
-    if (!this.validateService.validateRegister(user)) {
+    if (!this.validate.validateRegister(user)) {
       this.flashMessage.show('Please fill in all fields', {
-        cssClass: 'alert-danger', timeout: 3000
+        cssClass: 'alert-danger', timeout: 6000
       });
       return false;
     }
 
     // Validate Email
-    if (!this.validateService.validateEmail(user.email)) {
+    if (!this.validate.validateEmail(user.email)) {
       this.flashMessage.show('Please use a valid email', {
-        cssClass: 'alert-danger', timeout: 3000
+        cssClass: 'alert-danger', timeout: 6000
       });
       return false;
     }
@@ -57,12 +57,12 @@ export class RegisterComponent implements OnInit {
       .subscribe(function(data) {
       if (data.success) {
         this.flashMessage.show('Registeration complete! You can now log in', {
-          cssClass: 'alert-success', timeout: 3000
+          cssClass: 'alert-success', timeout: 2000
         });
         this.router.navigate(['/login']);
       } else {
         this.flashMessage.show('Something went wrong', {
-          cssClass: 'alert-danger', timeout: 3000
+          cssClass: 'alert-danger', timeout: 2000
         });
         this.router.navigate(['/register']);
       }

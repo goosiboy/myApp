@@ -41,11 +41,11 @@ router.post('/register', (req, res, next) => {
 
 // Authenticate by checking if the user exists. If true, then compare passwords.
 router.post('/auth', (req, res, next) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
 
     // Check if user exists
-    User.getUserByUsername(username, (err, user) => {
+    User.getUserByEmail(email, (err, user) => {
         if(err) throw err;
         if(!user) {
             return res.json({success: false, msg: 'User not found'});
@@ -55,9 +55,6 @@ router.post('/auth', (req, res, next) => {
         User.comparePasswords(password, user.password, function(err, isMatch) {
             if(err) throw err;
             if(isMatch){
-
-                console.log("user: ", user);
-
                 const token = jwt.sign({data: user}, config.secret, {
                     expiresIn: 604800 // 1 week (in seconds) before the token expires. Can be anything.
                 });

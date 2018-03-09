@@ -20,12 +20,21 @@ export class AuthService {
   registerUser(user) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this
-    .http
-    .post('http://localhost:3000/users/register', user, {headers: headers})
-    .map(function(res) {
-        return res.json();
-    });
+    return this.http
+      .post('http://localhost:3000/users/register', user, {headers: headers})
+        .map(function(res) {
+            return res.json();
+        });
+  }
+
+  findUser(user) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http
+      .post('http://localhost:3000/users/auth', user, {headers: headers})
+        .map(function(res) {
+            return res.json();
+        });
   }
 
 }

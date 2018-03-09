@@ -6,7 +6,24 @@ export class ValidateService {
   constructor() { }
 
   public validateRegister(user) {
-    if(user.name === undefined || user.email === undefined || user.username === undefined || user.password === undefined ) {
+    if (
+      user.name == null ||
+      user.name === '' ||
+      user.email == null ||
+      user.email === '' ||
+      user.username == null ||
+      user.username === '' ||
+      user.password == null ||
+      user.password === ''
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  public validateLogin(user) {
+    if (user.email == null || user.email === '' || user.password == null || user.password === '') {
       return false;
     } else {
       return true;
