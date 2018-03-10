@@ -1,7 +1,7 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ValidateService } from '../../services/validate.service';
-import { FlashMessagesService } from 'angular2-flash-messages';
+import { FlashMessageService } from './../../services/flash-message.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   // We need to bring services into the component by initializing them in a constructor
   constructor(
     private validate: ValidateService,
-    private flashMessage: FlashMessagesService,
+    private flashMessage: FlashMessageService,
     private authService: AuthService,
     private router: Router
   ) {}
@@ -37,17 +37,13 @@ export class RegisterComponent implements OnInit {
 
     // Require all fields
     if (!this.validate.validateRegister(user)) {
-      this.flashMessage.show('Please fill in all fields', {
-        cssClass: 'alert-danger', timeout: 6000
-      });
+      this.flashMessage.fieldsError();
       return false;
     }
 
     // Validate Email
     if (!this.validate.validateEmail(user.email)) {
-      this.flashMessage.show('Please use a valid email', {
-        cssClass: 'alert-danger', timeout: 6000
-      });
+      this.flashMessage.emailError();
       return false;
     }
 
@@ -56,14 +52,10 @@ export class RegisterComponent implements OnInit {
       .registerUser(user)
       .subscribe(function(data) {
       if (data.success) {
-        this.flashMessage.show('Registeration complete! You can now log in', {
-          cssClass: 'alert-success', timeout: 2000
-        });
+        this.flashMessage.regSuccess();
         this.router.navigate(['/login']);
       } else {
-        this.flashMessage.show('Something went wrong', {
-          cssClass: 'alert-danger', timeout: 2000
-        });
+        this.flashMessage.regError();
         this.router.navigate(['/register']);
       }
     }.bind(this)); // https://stackoverflow.com/questions/40801758/angular2-subscribe-understand-arrow-function
