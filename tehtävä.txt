@@ -1,0 +1,28 @@
+Kehitä hieman harjoitustehtäviä laajempi web- tai mobiilisovellus kurssilla esitellyillä teknologioilla.
+Esimerkkiaiheita:
+
+    Angularilla tai Reactilla ja Nodella/Expressillä kirjojen/pelien/elokuvien
+    arviointisovellus jossa alla Mongodb-kanta
+
+    Angularilla tai Reactilla, Nodella/Expressillä ja Mongolla Suomi-X -sanakirja jota voi päivittää.
+    Sanojen haku onnistuu molemmilla kielillä. Sanoja voi olla kokeeksi vain muutama.
+
+    Angularilla tai Reactilla reaktiivinen sovellus joka hyödyntää omasta tai valmiista web-apista saatavaa
+    datavirtaa.
+
+    Angularilla tai Reactilla tekoälyyn pohjautuvaa apia hyödyntävä sovellus (esim. chatbotti).
+    Esim. Googlen DialogFlowia pääsee käyttämään ilman luottokorttitietoja (tutoriaali).
+
+    Angularilla tai Reactilla ja Nodella isomorfinen eli universaalisovellus
+
+    Progressivinen Web-sovellus (PWA) Angularilla, Ionicilla tai Reactilla
+
+    Websocketia/Socket.io:ta käyttävä pieni JS-peli jossa Angular- tai React -käyttöliittymä
+
+    Mobiilisovellus Ionicilla tai React Nativella
+
+    AWS:n Lambda-funktioita käyttämällä pieni Serverless -kokeilusovellus
+    esim. ClaudiaJS -alustalle (vaatii vähintään Educate Starter Accountin AWS:ään).
+
+
+Loppuharjoitustyön julkaisusta pilvipalvelussa (esim. Heroku, AWS) plussaa.

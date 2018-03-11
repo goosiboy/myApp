@@ -13,7 +13,7 @@ constructor(private flashMessage: FlashMessagesService) {}
    */
   create(msg: string, type: string, time?: number) {
 
-    const str: string = msg || null;
+    const str: string = msg || "NULL";
     let timeOut: number = (time * 1000) || 4000;
     let cssClass: string;
 
@@ -40,42 +40,56 @@ constructor(private flashMessage: FlashMessagesService) {}
   emailError() {
     this.flashMessage.show("Please use a valid email address", {
         cssClass: 'alert-danger',
-        timeout: 4
+        timeout: 4000
     });
   }
 
   fieldsError() {
     this.flashMessage.show("Please fill in all fields", {
         cssClass: 'alert-danger',
-        timeout: 4
+        timeout: 4000
     });
   }
 
   logInError() {
     this.flashMessage.show("Incorrect password or email. Please try again", {
         cssClass: 'alert-danger',
-        timeout: 4
+        timeout: 4000
     });
   }
 
   regError() {
+    this.flashMessage.show("Something went wrong. Try again at later time", {
+        cssClass: 'alert-danger',
+        timeout: 6000
+    });
+  }
+
+  genericError() {
     this.flashMessage.show("Something went wrong", {
         cssClass: 'alert-danger',
-        timeout: 4
+        timeout: 4000
     });
   }
 
   regSuccess() {
     this.flashMessage.show('Registeration successful. You can now log in', {
         cssClass: 'alert-success',
-        timeout: 4
+        timeout: 4000
     });
   }
 
   logInSuccess() {
     this.flashMessage.show("You are now logged in", {
         cssClass: 'alert-success',
-        timeout: 4
+        timeout: 4000
+    });
+  }
+
+  logOutSuccess() {
+    this.flashMessage.show("You are now logged out", {
+        cssClass: 'alert-success',
+        timeout: 4000
     });
   }
 

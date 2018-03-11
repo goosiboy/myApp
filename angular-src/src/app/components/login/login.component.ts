@@ -27,10 +27,7 @@ export class LoginComponent implements OnInit {
 
     // Validate Login
     if (!this.validate.validateLogin(user)) {
-      this.flashMessage.create(
-        'Please fill all fields',
-        'red'
-      );
+      this.flashMessage.fieldsError();
       return false;
     } else {
       // Validate Email
