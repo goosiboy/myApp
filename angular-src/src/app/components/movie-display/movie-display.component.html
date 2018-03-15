@@ -1,0 +1,15 @@
+<div class="movieContainer">
+    <ngu-carousel
+      [inputs]="carouselTile"
+      (initData)="initDataFn($event)"
+      (carouselLoad)="carouselTileLoad($event)">
+
+            <ngu-tile class="nguTile" NguCarouselItem *ngFor="let movie of popularMoviesList">
+                <app-movie-child [movieData]="movie" [imageData]="imageData"></app-movie-child>
+            </ngu-tile>
+
+          <button NguCarouselPrev class='leftRs'><span>&lt;</span></button>
+          <button NguCarouselNext class='rightRs'><span>&gt;</span></button>
+    </ngu-carousel>
+</div>
+

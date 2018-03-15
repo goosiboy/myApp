@@ -1,0 +1,94 @@
+ul {
+	list-style: none;
+}
+
+.movieContainer {
+    background-color: rgb(43, 43, 43);
+	padding: 20px;
+}
+
+h1{
+	min-height: 200px;
+	text-align: center;
+	line-height: 200px;
+}
+
+.leftRs {
+    background-color: rgb(43, 43, 43);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 30px;
+	left: -90px;
+	top: 260px;
+	position:absolute;
+	height: 100px;
+	cursor: pointer;
+}
+
+.leftRs span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.2s;
+}
+
+.leftRs span:after {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -2px;
+  transition: 0.5s;
+}
+
+.leftRs:hover span {
+  padding-left: 25px;
+}
+
+.leftRs:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.rightRs {
+    background-color: rgb(43, 43, 43);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 30px;
+	right: -90px;
+	top: 260px;
+	position: absolute;
+	height: 100px;
+	cursor:pointer;
+}
+
+.rightRs span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.2s;
+}
+
+.rightRs span:after {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -2px;
+  transition: 0.5s;
+}
+
+.rightRs:hover span {
+  padding-right: 25px;
+}
+
+.rightRs:hover span:after {
+  opacity: 1;
+  right: 0;
+}

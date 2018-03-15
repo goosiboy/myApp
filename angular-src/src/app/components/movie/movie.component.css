@@ -1,0 +1,42 @@
+.movie {
+    margin-top:20px;
+    margin-bottom:20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: table;
+    width: 225px;
+    height: 530px;
+    color: rgb(240, 240, 240);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#moviePoster {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+#movieTitle {
+    text-align:center;
+    display: block;
+    font-size: 25px;
+}
+
+#movieDate {
+    text-align:center;
+    display: block;
+    font-size: 15px;
+}
+
+#movieRating {
+    text-align:center;
+    display: block;
+    font-size: 15px;
+}

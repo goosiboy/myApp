@@ -1,8 +1,12 @@
+import { SharedModule } from './modules/shared/shared.module';
+import { MovieDataService } from './services/movie-data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { NguCarouselModule } from '@ngu/carousel';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -18,6 +22,8 @@ import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages/module';
 import { FlashMessageService } from './services/flash-message.service';
 import { AuthGuardService } from './guards/auth.guard';
+import { MovieDisplayComponent } from './components/movie-display/movie-display.component';
+import { MovieComponent } from './components/movie/movie.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -38,20 +44,26 @@ const appRoutes: Routes = [
     HomeComponent,
     RegisterComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MovieDisplayComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    NguCarouselModule,
+    SharedModule
   ],
   providers: [
     ValidateService,
     AuthService,
     FlashMessageService,
-    AuthGuardService
+    AuthGuardService,
+    MovieDataService
   ],
   bootstrap: [AppComponent]
 })

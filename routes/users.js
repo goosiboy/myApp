@@ -3,9 +3,8 @@ const router = express.Router();
 const User = require('../models/User');
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
-const config = require('../config/database');
+const database = require('../config/database');
 
-// Users
 router.get('/', (req, res, next) => {
     res.send('USERS');
 });
@@ -55,7 +54,7 @@ router.post('/auth', (req, res, next) => {
         User.comparePasswords(password, user.password, function(err, isMatch) {
             if(err) throw err;
             if(isMatch){
-                const token = jwt.sign({data: user}, config.secret, {
+                const token = jwt.sign({data: user}, database.secret, {
                     expiresIn: 604800 // 1 week (in seconds) before the token expires. Can be anything.
                 });
 
