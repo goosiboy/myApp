@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public profileVisible: boolean;
+  public movieId;
+
+  constructor(
+) { }
 
   ngOnInit() {
+    this.profileVisible = false;
+  }
+
+  activateProfile(id) {
+    this.movieId = id;
+    this.profileVisible = true;
+  }
+
+  inactivateProfile(event) {
+    this.profileVisible = event;
   }
 
 }

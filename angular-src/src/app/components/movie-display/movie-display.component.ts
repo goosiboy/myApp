@@ -1,5 +1,5 @@
 import { MovieDataService } from './../../services/movie-data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NguCarousel, NguCarouselStore, NguCarouselService } from '@ngu/carousel';
 
 @Component({
@@ -9,7 +9,10 @@ import { NguCarousel, NguCarouselStore, NguCarouselService } from '@ngu/carousel
 })
 export class MovieDisplayComponent implements OnInit {
 
+  @Output() clickedMovie: EventEmitter<number> = new EventEmitter();
+
   public popularMoviesList = [];
+  public topRatedMoviesList = [];
 
   public image_width;
   public image_baseURL;
@@ -31,6 +34,7 @@ export class MovieDisplayComponent implements OnInit {
   ngOnInit() {
     this.initConfigData();
     this.initPopularMoviesList();
+    this.initTopRatedMoviesList();
     this.slideShowInit();
   }
 
@@ -81,6 +85,16 @@ export class MovieDisplayComponent implements OnInit {
     this.movieDataService.createPopularList(function (res) {
       this.popularMoviesList = res;
     }.bind(this));
+  }
+
+  initTopRatedMoviesList() {
+    this.movieDataService.createTopRatedList(function (res) {
+      this.topRatedMoviesList = res;
+    }.bind(this));
+  }
+
+  clickedMovieHandler(movie_id) {
+    this.clickedMovie.emit(movie_id);
   }
 
 }

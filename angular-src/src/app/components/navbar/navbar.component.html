@@ -11,6 +11,7 @@
         <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
     </ul>
+    <app-login-greeting></app-login-greeting>
     <ul id="ul_right" class="navbar-nav ml-auto">
       <li *ngIf="!authService.tokenExpired()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
         <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>

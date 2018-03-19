@@ -1,4 +1,4 @@
-<div class="movie">
+<div class="movie" (click)="onClick(movie.id)">
   <img id="moviePoster" src={{movie.imageURL}}>
   <p id="movieTitle">{{ movie.title }}</p>
   <p id="movieRating">{{ movie.rating }}</p>

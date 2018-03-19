@@ -1,7 +1,2 @@
-<div class="jumbotron text-center">
-  <h1>Welcome to the CheckFlix!</h1>
-  <br />
-  <p class="lead">Worlds #1 movie - related website!</p>
-</div>
-<app-movie-display></app-movie-display>
-
+<app-movie-display *ngIf="!profileVisible" (clickedMovie)="activateProfile($event)"></app-movie-display>
+<app-movie-profile *ngIf="profileVisible" [movieId]="movieId" (activated)="inactivateProfile($event)"></app-movie-profile>

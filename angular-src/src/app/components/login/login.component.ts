@@ -3,8 +3,13 @@ import {ValidateService} from './../../services/validate.service';
 import {Component, OnInit} from '@angular/core';
 import {FlashMessageService} from './../../services/flash-message.service';
 import {Router} from '@angular/router';
+import {LoginGreetingService} from './../../services/login-greeting.service';
 
-@Component({selector: 'app-login', templateUrl: './login.component.html', styleUrls: ['./login.component.css']})
+@Component(
+  {selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']})
+
 export class LoginComponent implements OnInit {
 
   email: String;
@@ -14,7 +19,8 @@ export class LoginComponent implements OnInit {
     private validate: ValidateService,
     private flashMessage: FlashMessageService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private loginGreeting: LoginGreetingService
   ) {}
 
   ngOnInit() {}
@@ -53,6 +59,7 @@ export class LoginComponent implements OnInit {
     this.flashMessage.logInSuccess();
     this.authService.storeUserData(data.token, data.user);
     this.router.navigate(['/dashboard']);
+    this.loginGreeting.resolveLogin();
   }
 
   private handleError() {

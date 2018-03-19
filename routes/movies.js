@@ -21,4 +21,16 @@ router.get('/popular', function(req, res, next) {
     });
 });
 
+router.get('/top', function(req, res, next) {
+    tmdb.getTopRated(function(result) {
+        res.json(result);
+    });
+});
+
+router.post('/find', function(req, res, next) {
+    tmdb.findByID(req.body.id, function (result) {
+        res.json(result);
+    });
+});
+
 module.exports = router;

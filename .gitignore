@@ -63,3 +63,6 @@ typings/
 # config - files
 config/database.js
 config/config.js
+
+# public - files
+public/

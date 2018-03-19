@@ -1,3 +1,4 @@
+import { LoginGreetingService } from './services/login-greeting.service';
 import { SharedModule } from './modules/shared/shared.module';
 import { MovieDataService } from './services/movie-data.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,6 +25,8 @@ import { FlashMessageService } from './services/flash-message.service';
 import { AuthGuardService } from './guards/auth.guard';
 import { MovieDisplayComponent } from './components/movie-display/movie-display.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { LoginGreetingComponent } from './components/login-greeting/login-greeting.component';
+import { MovieProfileComponent } from './components/movie-profile/movie-profile.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -31,6 +34,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
+  {path: 'movie-profile', component: MovieProfileComponent},
   {path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '/404'}
 ];
@@ -46,7 +50,9 @@ const appRoutes: Routes = [
     ProfileComponent,
     NotFoundComponent,
     MovieDisplayComponent,
-    MovieComponent
+    MovieComponent,
+    LoginGreetingComponent,
+    MovieProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,8 @@ const appRoutes: Routes = [
     AuthService,
     FlashMessageService,
     AuthGuardService,
-    MovieDataService
+    MovieDataService,
+    LoginGreetingService
   ],
   bootstrap: [AppComponent]
 })

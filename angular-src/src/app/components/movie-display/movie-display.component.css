@@ -14,13 +14,13 @@ h1{
 }
 
 .leftRs {
-    background-color: rgb(43, 43, 43);
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+  background-color: rgb(43, 43, 43);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 	font-size: 30px;
 	left: -90px;
 	top: 260px;
