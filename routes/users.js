@@ -1,3 +1,4 @@
+// Imports
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -18,6 +19,7 @@ router.post('/register', (req, res, next) => {
         password: req.body.password
     });
 
+    // Gets the User - object and calls the addUser - method.
     User.addUser(newUser, function(err, user) {
         if(err) {
             res.json(

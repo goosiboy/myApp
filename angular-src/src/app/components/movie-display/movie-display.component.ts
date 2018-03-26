@@ -1,5 +1,8 @@
 import { MovieDataService } from './../../services/movie-data.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
+// Angular Universal carousel by sheikalthaf
+// @https://github.com/sheikalthaf/ngu-carousel
 import { NguCarousel, NguCarouselStore, NguCarouselService } from '@ngu/carousel';
 
 @Component({
@@ -11,6 +14,7 @@ export class MovieDisplayComponent implements OnInit {
 
   @Output() clickedMovie: EventEmitter<number> = new EventEmitter();
 
+  // Popular movies, and top rated movies are added to this list for further usage.
   public popularMoviesList = [];
   public topRatedMoviesList = [];
 
@@ -21,6 +25,7 @@ export class MovieDisplayComponent implements OnInit {
   public carouselTileItems;
   public carouselTile: NguCarousel;
 
+  // Store the image - data into an object, which will then be passed to another component
   imageData = {
     width: null,
     baseURL: null

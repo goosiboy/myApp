@@ -13,15 +13,18 @@ export class HomeComponent implements OnInit {
   constructor(
 ) { }
 
+  // On component init
   ngOnInit() {
     this.profileVisible = false;
   }
 
+  // Movie profile - component becomes visible.
   activateProfile(id) {
     this.movieId = id;
     this.profileVisible = true;
   }
 
+  // Movie profile - component becomes hidden.
   inactivateProfile(event) {
     this.profileVisible = event;
   }
